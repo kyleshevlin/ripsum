@@ -24,6 +24,12 @@ Or install it yourself as:
 <%= ripsum(100, 0.5) %>
 ```
 
+The `ripsum` method takes two arguments. The first argument is the standard word count desired. In the example above, that would be 100 words. 
+
+The second argument is the variance. Currently, you must use a floating point decimal with a leading zero. Thus, in the example above, we desire a possible variance of 50%, so we use the decimal `0.5`.
+
+Ripsum takes the standard word count and calculates the minimum and maximum word count based on the variance. Then, it randomly chooses a number in that range and outputs that amount of Lorem ipsum text.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake false` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
