@@ -9,7 +9,7 @@ module Ripsum
     random_number = rand(min..max).floor
 
     1..random_number.times do |i|
-      if i == 1
+      if i == 0
         text << lorem_array[i].capitalize
       else
         text << lorem_array[i]
