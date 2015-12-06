@@ -1,10 +1,20 @@
 module Ripsum
   def ripsum(standard, variance)
     lorem = ripsum_library
-    text  = []
-    min   = standard - (standard * variance)
-    max   = standard + (standard * variance)
+    text = []
+
+    if variance.to_s.count('%') > 0
+      variance_array = variance.split('%')
+      variance = variance_array[0].to_i / 100
+    end
+
+    min = standard - (standard * variance)
+    max = standard + (standard * variance)
     lorem_array = lorem.split(' ').shuffle
+
+    while standard > lorem_array.length
+      lorem_array.concat(lorem_array.shuffle)
+    end
 
     random_number = rand(min..max).floor
 
