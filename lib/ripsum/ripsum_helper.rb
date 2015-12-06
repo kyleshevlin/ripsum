@@ -3,11 +3,6 @@ module Ripsum
     lorem = ripsum_library
     text = []
 
-    if variance.to_s.count('%') > 0
-      variance_array = variance.split('%')
-      variance = variance_array[0].to_i / 100
-    end
-
     min = standard - (standard * variance)
     max = standard + (standard * variance)
     lorem_array = lorem.split(' ').shuffle
