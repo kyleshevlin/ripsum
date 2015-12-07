@@ -9,9 +9,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Kyle Shevlin"]
   spec.email         = ["kyle.a.shevlin@gmail.com"]
 
-  spec.summary       = %q{View helper that generates a random amount of lorem ipsum text with each page load.}
-  spec.description   = %q{Using a small helper method, insert a random amount of lorem ipsum with each page load. Helps you stress test your design against edge cases and worst case scenarios}
+  spec.summary       = %q{Using a small helper method, insert a random amount of lorem ipsum with each page load. Helps you stress test your design against edge cases and worst case scenarios.}
+  spec.description   = %q{ View helper that generates a random amount of lorem ipsum text with each page load.}
   spec.homepage      = "http://www.github.com/kyleshevlin/ripsum"
+  spec.licenses    = ['MIT']
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
