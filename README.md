@@ -30,6 +30,18 @@ The second argument is the variance. Currently, you must use a floating point de
 
 Ripsum takes the standard word count and calculates the minimum and maximum word count based on the variance. Then, it randomly chooses a number in that range and outputs that amount of Lorem ipsum text.
 
+## Configuration
+
+Currently, the only configurable option is the library of words that Ripsum uses. You can pass your own string of words in a configuration block. If you're using Rails, create a file in the `config/initializers` directory, perhaps named `ripsum_initializer.rb` (though it can be named whatever you would like).
+
+```ruby
+Ripsum.configure do |config|
+    config.library = "Your string of words here. Probably want a few hundred of them. Etc..."
+end
+```
+
+Make sure to restart your server. It is an initializer file after all.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake false` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
