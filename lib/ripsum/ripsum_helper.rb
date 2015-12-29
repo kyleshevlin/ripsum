@@ -1,5 +1,5 @@
 module Ripsum
-  def ripsum(standard, variance=1)
+  def ripsum(standard, variance=0)
     lorem = library
     text = []
 
@@ -9,14 +9,12 @@ module Ripsum
       lorem_array.concat(lorem_array.shuffle)
     end
 
-    if variance != 1
+    if variance != 0
       min = standard - (standard * variance)
       max = standard + (standard * variance)
       word_count = rand(min..max).floor
-      word_count
     else
       word_count = standard
-      word_count
     end
 
     1..word_count.times do |i|
