@@ -21,12 +21,19 @@ Or install it yourself as:
 ## Usage
 
 ```erb
+<%= ripsum(100) %>
+```
+
+or
+
+```erb
+<%# With Variance %>
 <%= ripsum(100, 0.5) %>
 ```
 
 The `ripsum` method takes two arguments. The first argument is the standard word count desired. In the example above, that would be 100 words. 
 
-The second argument is the variance. Currently, you must use a floating point decimal with a leading zero. Thus, in the example above, we desire a possible variance of 50%, so we use the decimal `0.5`.
+The second argument is the variance. This argument is optional. _The default value for variance is `0` and can be omitted from the method call_. This would result in the exact number of words you specify with each page load, though the words themselves will continue to be random. If you would like variance in the word output, you must use a floating point decimal with a leading zero. Thus, in the example above, we desire a possible variance of 50%, so we use the decimal `0.5`.
 
 Ripsum takes the standard word count and calculates the minimum and maximum word count based on the variance. Then, it randomly chooses a number in that range and outputs that amount of Lorem ipsum text.
 
