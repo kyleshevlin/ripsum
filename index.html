@@ -37,15 +37,17 @@
       request.onload = function() {
         if (request.status >= 200 && request.status < 400) {
           // Success!
-          var resp = request.responseText;
-          addRipsum(resp.data);
+          var data = JSON.parse(request.responseText);
+          addRipsum(data.data);
         } else {
           // We reached our target server, but it returned an error
+          console.log('error');
         }
       };
 
       request.onerror = function() {
         // There was a connection error of some sort
+        console.log('error');
       };
 
       request.send();
