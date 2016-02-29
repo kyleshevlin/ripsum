@@ -7,58 +7,30 @@
 </head>
 <body>
   <header class="header">
-    <h1>Ripsum</h1>
+    <div class="container">
+      <h1>Ripsum</h1>
+    </div>
   </header>
 
-  <article>
-    <p>
-      Ripsum is a small Ruby gem that adds a helper method for outputting random amounts of lorem ipsum <em>per</em> page load. Each time you refresh, you get a new set of words.
-    </p>
-    <p>
-      The philosophy behind Ripsum is simple: designs should be stress tested. Don't fill your page with perfect, static text. You'll never find the problems that way. Instead, randomize your text to find edge cases you otherwise wouldn't notice. <strong>The next paragraph is an example of Ripsum in action.</strong>
-    </p>
+  <div class="container">
+    <article>
+      <p>
+        Ripsum is a small Ruby gem that adds a helper method for outputting random amounts of lorem ipsum <em>per</em> page load. Each time you refresh, you get a new set of words.
+      </p>
+      <p>
+        The philosophy behind Ripsum is simple: designs should be stress tested. Don't fill your page with perfect, static text. You'll never find the problems that way. Instead, randomize your text to find edge cases you otherwise wouldn't notice. <strong>The next paragraph is an example of Ripsum in action.</strong>
+      </p>
 
-    <p id="ripsum"></p>
-  </article>
+      <p id="ripsum"></p>
+    </article>
+  </div>
 
-  <script>
-    function ready(fn) {
-      if (document.readyState != 'loading'){
-        fn();
-      } else {
-        document.addEventListener('DOMContentLoaded', fn);
-      }
-    }
+  <footer class="footer">
+    <div class="container">
+      <p>Copyright &copy;<span id="copyright-date">2016</span> Kyle Shevlin. All Rights Reserved.</p>
+    </div>
+  </footer>
 
-    function getRipsum() {
-      var request = new XMLHttpRequest();
-      request.open('GET', 'https://ripsum.herokuapp.com/100/50', true);
-
-      request.onload = function() {
-        if (request.status >= 200 && request.status < 400) {
-          // Success!
-          var data = JSON.parse(request.responseText);
-          addRipsum(data.data);
-        } else {
-          // We reached our target server, but it returned an error
-          console.log('error');
-        }
-      };
-
-      request.onerror = function() {
-        // There was a connection error of some sort
-        console.log('error');
-      };
-
-      request.send();
-    }
-
-    function addRipsum(text) {
-      var el = document.getElementById('ripsum');
-      el.textContent = text;
-    }
-
-    ready(getRipsum);
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
